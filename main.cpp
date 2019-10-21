@@ -1,5 +1,6 @@
 #include <iostream>
 #include <fstream>
+#include <chrono>
 #include "Menu.h"
 #include "MaxHeap.h"
 #include "MinHeap.h"
@@ -44,10 +45,19 @@ int main(int argc, char* argv[]) {
     MaxHeap max;
     MinHeap min;
     
+
+    auto start = chrono::high_resolution_clock::now();
+
     for (int i; i < valueCount; i++) {
-        max.insert(tempArr[i]);
+        //max.insert(tempArr[i]);
         min.insert(tempArr[i]);
     }
+
+    auto  end = chrono::high_resolution_clock::now();
+    auto elapsedTime = chrono::duration_cast<std::chrono::nanoseconds>(end - start);
+
+    cout << "heapify() took " << elapsedTime.count()  << " nanoseconds.\n";
+    
     
     Menu mainMenu(max, min);
     mainMenu.run();

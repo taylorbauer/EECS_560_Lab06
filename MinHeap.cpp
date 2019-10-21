@@ -172,6 +172,6 @@ void MinHeap::timeLowestPQ() {  // To learn timing in C++ some of this is pretty
     PQLowest();
     chrono::time_point<std::chrono::system_clock> end = chrono::system_clock::now();
     chrono::duration<double> elapsedTime = end - start;
-    cout << "Finding lowest priority value on the Min Heap took " << elapsedTime.count() << " seconds.\n";
+    cout << "Finding lowest priority value on the Min Heap took " << elapsedTime.count() * 1000 << " milliseconds.\n";
     return;
 }
