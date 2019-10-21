@@ -168,10 +168,19 @@ void MinHeap::PQLowest() {
 }
 
 void MinHeap::timeLowestPQ() {  // To learn timing in C++ some of this is pretty directly lifted from the tutorial at https://www.geeksforgeeks.org/chrono-in-c/
-    chrono::time_point<std::chrono::system_clock> start = chrono::system_clock::now();
+    auto start = chrono::high_resolution_clock::now();
     PQLowest();
-    chrono::time_point<std::chrono::system_clock> end = chrono::system_clock::now();
-    chrono::duration<double> elapsedTime = end - start;
-    cout << "Finding lowest priority value on the Min Heap took " << elapsedTime.count() * 1000 << " milliseconds.\n";
+    auto  end = chrono::high_resolution_clock::now();
+    auto elapsedTime = chrono::duration_cast<std::chrono::nanoseconds>(end - start);
+    cout << "Finding lowest priority value on the Min Heap took " << elapsedTime.count() << " nanoseconds.\n";
+    return;
+}
+
+void MinHeap::time() {
+    auto start = chrono::high_resolution_clock::now();
+    deleteRoot();
+    auto  end = chrono::high_resolution_clock::now();
+    auto elapsedTime = chrono::duration_cast<std::chrono::nanoseconds>(end - start);
+    cout << "Deleting highest priority value on the Min Heap took " << elapsedTime.count() << " nanoseconds.\n";
     return;
 }

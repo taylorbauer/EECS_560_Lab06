@@ -1,6 +1,8 @@
 #ifndef MAX_HEAP_H
 #define MAX_HEAP_H
 
+
+//  For descriptions of member functions, please see their analogues in MinHeap.h
 class MaxHeap{
 public:
     MaxHeap();

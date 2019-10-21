@@ -49,14 +49,14 @@ int main(int argc, char* argv[]) {
     auto start = chrono::high_resolution_clock::now();
 
     for (int i; i < valueCount; i++) {
-        //max.insert(tempArr[i]);
+        max.insert(tempArr[i]);
         min.insert(tempArr[i]);
     }
 
     auto  end = chrono::high_resolution_clock::now();
     auto elapsedTime = chrono::duration_cast<std::chrono::nanoseconds>(end - start);
 
-    cout << "heapify() took " << elapsedTime.count()  << " nanoseconds.\n";
+    // cout << "heapify() took " << elapsedTime.count()  << " nanoseconds.\n";
     
     
     Menu mainMenu(max, min);

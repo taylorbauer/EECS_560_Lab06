@@ -11,7 +11,7 @@ void Menu::run() {
     cin.clear();
     int selection = 0;
     cout << "\nWelcome!\n";
-    while (selection != 7) {
+    while (selection < 10 && selection >= 0) {
         cout << "Please choose one of the following commands:\n"
             << "1. Insert\n"
             << "2. Delete\n"
@@ -66,9 +66,12 @@ void Menu::run() {
             cout << "\n\nGoodbye!!!\n\n";
             return;
         }
+        else if (selection == 8) {  // secret timing function
+            min.time();
+        }
         else {
             selection = 0;
-            cout << "I don't think that's a valid selection, please try again!";
+            cout << "I don't think that's a valid selection, please try again!\n";
         }
     }
 }
